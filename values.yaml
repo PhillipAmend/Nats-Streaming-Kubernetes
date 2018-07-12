@@ -1,5 +1,5 @@
 image: kluless/nats-streaming-kubernetes:v0.10.2
-imagePullPolicy: IfNotPresent
+imagePullPolicy: Always 
 replicas: 3
 
 NatsCluster:

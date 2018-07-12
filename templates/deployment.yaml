@@ -40,7 +40,12 @@ spec:
         - mountPath: /nats-datastore
           name: nats-datastore
           subPath: {{ .Values.NatsStreamingServer.VolumeSubPath }}
-      volumes:
-      - name: nats-datastore
-        persistentVolumeClaim:
-          claimName: {{ template "name" . }}
+  volumeClaimTemplates:
+  - metadata:
+      name: nats-datastore
+    spec:
+      storageClassName: {{ .Values.Persistance.StorageClass }} 
+      accessModes: [ ReadWriteOnce ]
+      resources:
+        requests:
+          storage: 30Gi
