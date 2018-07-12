@@ -1,4 +1,4 @@
-image: docker.io/kluless/nats-streaming-kubernetes:v0.10.2
+image: kluless/nats-streaming-kubernetes:v0.10.2
 imagePullPolicy: IfNotPresent
 replicas: 3
 
@@ -12,5 +12,5 @@ NatsStreamingServer:
   VolumeSubPath: nats-streaming
           
 Persistance:
-  StorageClass: ""
+  StorageClass: "kube-nfs"
   StorageSize: 2Gi
