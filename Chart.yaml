@@ -1,0 +1,4 @@
+name: nats-streaming-server
+home: https://github.com/PhillipAmend/nats-streaming-kubernetes
+version: v0.10.2
+description: nats streaming server on Kubernetes

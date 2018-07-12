@@ -1,0 +1,16 @@
+image: docker.io/kluless/nats-streaming-kubernetes:v0.10.2
+imagePullPolicy: IfNotPresent
+replicas: 3
+
+NatsCluster:
+  ServiceUrl: nats
+  ServicePort: 6222
+
+NatsStreamingServer:
+  ServicePort: 4222
+  MonitoringPort: 8222
+  VolumeSubPath: nats-streaming
+          
+Persistance:
+  StorageClass: ""
+  StorageSize: 2Gi

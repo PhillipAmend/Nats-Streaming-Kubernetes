@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  {{ template "name" . }}
+  labels:
+    app:  {{ template "name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}    
+spec:
+  selector:
+    app:  {{ template "name" . }}
+    release: {{ .Release.Name }}
+  ports:
+  - name: nats
+    protocol: TCP
+    port: {{ .Values.NatsStreamingServer.ServicePort }}
+  - name: monitoring
+    protocol: TCP
+    port: {{ .Values.NatsStreamingServer.MonitoringPort }}
